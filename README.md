@@ -38,23 +38,31 @@ outImage = filterImage (inImage, kernel)
     kernel: PxQ matrix with kernel. We assume that the center of the kernel equals [P//2+1,Q//2+1]
 ```
 
-- **GaussKernel1D**: implementation of histogram equalization.
+- **GaussKernel1D**: calculates a Gaussian kernel with a provided sigma.
 
 ```
 Usage: 
-    gaussKernel1D (inImage: Matrix, inRange: [], outRange: [0, 1]): Matrix
+kernel = gaussKernel1D (sigma)
+    sigma = sigma parameter.
+    kernel = 1xN vector.
 ```
 
-- **GaussianFilter**: implementation of histogram equalization.
-
-```
-Usage: 
-    gaussianFilter (inImage: Matrix, inRange: [], outRange: [0, 1]): Matrix
-```
-
-- **MedianFilter**: implementation of histogram equalization.
+- **GaussianFilter**: gaussian smoothing in a 2 dimensional space using a gaussian filter based on the sigma given.
 
 ```
 Usage: 
-    medianFilter (inImage: Matrix, inRange: [], outRange: [0, 1]): Matrix
+outImage = gaussianFilter (inImage, sigma)
+    inImage: Matrix MxN with input image.
+    outImage: Matrix MxN with output image.
+    sigma = sigma parameter.
+```
+
+- **MedianFilter**: 2 dimensional median filter.
+
+```
+Usage: 
+outImage = medianFilter (inImage, filterSize)
+    inImage: Matrix MxN with input image.
+    outImage: Matrix MxN with output image.
+    filterSize: Integer value for the kernel size.
 ```
